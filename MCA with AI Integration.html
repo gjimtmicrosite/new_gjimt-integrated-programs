@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCA with AI Integration | GJIMT</title>
+
+<style>
+:root{
+  --primary:#1e3a8a;
+  --accent:#facc15;
+  --bg:#f8fafc;
+  --dark:#0f172a;
+}
+
+body{
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:#333;
+  line-height:1.7;
+}
+
+header{
+  background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
+  padding:80px 10%;
+  text-align:center;
+}
+
+header h1{
+  font-size:42px;
+}
+
+header p{
+  max-width:900px;
+  margin:auto;
+  font-size:18px;
+}
+
+.badges{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.badge{
+  background:var(--accent);
+  color:#000;
+  padding:10px 18px;
+  border-radius:30px;
+  font-weight:600;
+}
+
+section{
+  padding:70px 10%;
+}
+
+.section-title{
+  text-align:center;
+  font-size:32px;
+  color:var(--primary);
+  margin-bottom:40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.semester{
+  margin-bottom:50px;
+}
+
+.semester h3{
+  color:var(--dark);
+  border-left:6px solid var(--primary);
+  padding-left:12px;
+}
+
+ul{padding-left:20px}
+li{margin-bottom:8px}
+
+.projects{
+  background:#eef2ff;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
+
+footer{
+  background:var(--dark);
+  color:#fff;
+  text-align:center;
+  padding:25px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MCA with AI Integration</h1>
+<p>
+A unique 4-semester MCA program with applied, tool-dependent AI integration, ensuring strong
+computing fundamentals while embedding AI for software development, data handling,
+and intelligent systems.
+</p>
+
+<div class="badges">
+  <div class="badge">4 Credits</div>
+  <div class="badge">42 Hours</div>
+  <div class="badge">3 Global Certifications</div>
+  <div class="badge">₹70,000 / Semester</div>
+</div>
+</header>
+
+<section class="reveal">
+<h2 class="section-title">Why Choose This Program?</h2>
+<div class="grid">
+  <div class="card">✔ Strong programming & system design foundations</div>
+  <div class="card">✔ AI-augmented software development skills</div>
+  <div class="card">✔ Ethical, secure & scalable system thinking</div>
+  <div class="card">✔ High employability in software, data & AI roles</div>
+</div>
+</section>
+
+<section class="reveal">
+<h2 class="section-title">Semester-wise Curriculum</h2>
+
+<div class="semester">
+<h3>Semester 1: Programming Foundations & Computer Systems</h3>
+<p><b>Core Focus:</b> C/C++, Data Structures, OS, COA, Discrete Maths, Communication</p>
+<p><b>AI Integration:</b> Logic building, debugging, documentation</p>
+<p><b>AI Tools:</b> ChatGPT, Gemini, GitHub Copilot, Grammarly AI, Notion AI</p>
+<p><b>Execution Mode:</b> Code development + AI reasoning + documentation</p>
+</div>
+
+<div class="semester">
+<h3>Semester 2: Database Systems, OOP & Software Engineering</h3>
+<p><b>Core Focus:</b> Java / Python, DBMS, Software Engineering, Web Technologies</p>
+<p><b>AI Integration:</b> OOP design, DB optimisation, lifecycle understanding</p>
+<p><b>AI Tools:</b> ChatGPT, Copilot, Draw.io AI, Lucid AI, Excel AI</p>
+<p><b>Execution Mode:</b> AI-supported design → coding → validation</p>
+</div>
+
+<div class="semester">
+<h3>Semester 3: Data Analytics, AI Concepts & Electives</h3>
+<p><b>Core Focus:</b> Data Analytics, AI, ML Basics, Electives</p>
+<p><b>AI Integration:</b> Data-driven reasoning & model understanding</p>
+<p><b>AI Tools:</b> Python (AI assist), ChatGPT, Power BI, Looker Studio, Google Colab</p>
+<p><b>Execution Mode:</b> AI-assisted analytics → interpretation → reporting</p>
+</div>
+
+<div class="semester">
+<h3>Semester 4: Major Project, Cybersecurity & Emerging Technologies</h3>
+<p><b>Core Focus:</b> Major Project, Cybersecurity, Cloud, Emerging Tech</p>
+<p><b>AI Integration:</b> Applied & ethical AI systems</p>
+<p><b>AI Tools:</b> ChatGPT (Research), Copilot, AWS/Azure AI, Turnitin, Copyleaks</p>
+<p><b>Execution Mode:</b> End-to-end AI-enabled system development</p>
+</div>
+</section>
+
+<section class="projects reveal">
+<h2 class="section-title">Benchmarked Shadow Projects</h2>
+<div class="grid">
+  <div class="card">🔹 Algorithm Optimisation & Data Structure Performance Studies</div>
+  <div class="card">🔹 System Utility & OOP-Based Application Development</div>
+  <div class="card">🔹 Customer Analytics & ML Model Comparison</div>
+  <div class="card">🔹 Cybersecurity Threat Analysis & Cloud Deployment</div>
+</div>
+</section>
+
+<footer>
+© GJIMT | MCA with AI Integration • Industry Ready • Secure • Future Focused
+</footer>
+
+<script>
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(r=>{
+    if(r.getBoundingClientRect().top < window.innerHeight-100){
+      r.classList.add("active");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
