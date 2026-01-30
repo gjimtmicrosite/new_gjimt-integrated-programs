@@ -1,199 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCom(Hons) with AI Integration - GJIMT</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-        h1, h2, h3 {
-            color: #1a237e;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        h2 {
-            margin-top: 40px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            margin-bottom: 5px;
-        }
-        p {
-            margin: 8px 0;
-        }
-        ul {
-            margin: 8px 0 16px 20px;
-        }
-        .ai-tools, .projects {
-            margin-left: 20px;
-        }
-        .projects li {
-            margin-bottom: 8px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCom (Hons) with AI Integration | GJIMT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#b11217;
+  --dark:#1f1f1f;
+  --gray:#f4f6fa;
+  --blue:#1a237e;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:var(--gray);
+  color:#333;
+  line-height:1.7;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 20px;
+}
+
+.logos{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logos img{
+  height:45px;
+}
+
+nav a{
+  color:var(--dark);
+  text-decoration:none;
+  margin-left:22px;
+  font-weight:500;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  width:0;
+  height:2px;
+  background:var(--primary);
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  transition:0.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+  url("https://images.unsplash.com/photo-1554224154-22dec7ec8818") center/cover no-repeat;
+  padding:90px 20px;
+  color:#fff;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:2.6rem;
+}
+
+.hero p{
+  margin-top:10px;
+  font-size:1.1rem;
+}
+
+/* CONTENT */
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  background:#fff;
+  padding:40px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+h2{
+  color:var(--blue);
+  margin:30px 0 15px;
+}
+
+ul{
+  margin-left:20px;
+  margin-bottom:15px;
+}
+
+li{margin-bottom:6px;}
+
+/* INFO STRIP */
+.info-strip{
+  background:#eef1fb;
+  padding:15px 20px;
+  border-left:5px solid var(--primary);
+  border-radius:8px;
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+/* ACCORDION */
+.semester{
+  background:#f9fafc;
+  margin-bottom:18px;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 6px 15px rgba(0,0,0,.06);
+}
+
+.semester h3{
+  padding:16px 20px;
+  background:#e8eaf6;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.semester h3 span{
+  font-size:1.4rem;
+  font-weight:600;
+}
+
+.semester-content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .6s ease, padding .3s ease;
+  padding:0 20px;
+}
+
+.semester-content.open{
+  padding:20px;
+  max-height:3000px;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  color:#ccc;
+  text-align:center;
+  padding:18px;
+  font-size:.9rem;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>BCom(Hons) with AI Integration</h1>
-        <p><strong>Integration:</strong> 4 Credits | 42 Hours | 3 Global Certifications | Fee: 50,000 INR per Semester</p>
-        <p>GJIMT offers a unique B.Com(Hons) program with AI-enabled, tool-dependent experiential learning model on advanced commerce, accounting, finance, analytics, taxation, and research orientation, using AI as a professional augmentation tool, not a shortcut.</p>
 
-        <h2>Why one should do this Program:</h2>
-        <ul>
-            <li>Strong accounting, finance and taxation expertise</li>
-            <li>AI-augmented analytical and research capability</li>
-            <li>Ethical, compliant and professional orientation</li>
-            <li>High readiness for CA / CMA / ACCA / MBA / analytics pathways</li>
-        </ul>
-
-        <h2>Program Semesters</h2>
-
-        <!-- Semester 1 -->
-        <h3>Semester 1: Financial Accounting & Business Foundations</h3>
-        <p><strong>Core Focus:</strong> Financial Accounting, Business Organization, Microeconomics, Business Mathematics, Communication Skills.</p>
-        <p><strong>AI Integration Focus:</strong></p>
-        <ul class="ai-tools">
-            <li>Accounting concept clarity</li>
-            <li>Structured financial interpretation</li>
-            <li>Professional communication</li>
-        </ul>
-        <p><strong>AI Tools Integrated:</strong></p>
-        <ul class="ai-tools">
-            <li>ChatGPT / Gemini – Accounting logic explanation, numerical walkthroughs</li>
-            <li>Microsoft Copilot / Google Workspace AI – Working papers, summaries</li>
-            <li>Excel AI (Analyze Data) – Ledger analysis, trend identification</li>
-            <li>Grammarly AI – Professional reporting</li>
-        </ul>
-        <p><strong>Benchmarked Shadow Projects:</strong></p>
-        <ul class="projects">
-            <li>Financial Statement Interpretation (Tata Group) – Analyse income statement and balance sheet. Tools: ChatGPT (ratio explanation), Excel AI (trend tables)</li>
-            <li>Business Cost Classification Study (ITC) – Classify fixed, variable, semi-variable costs. Tools: ChatGPT (concept mapping), Excel AI (cost tables)</li>
-        </ul>
-
-        <!-- Semester 2 -->
-        <h3>Semester 2: Corporate Accounting & Business Law</h3>
-        <p><strong>Core Focus:</strong> Corporate Accounting, Business Law, Macroeconomics, Business Statistics.</p>
-        <p><strong>AI Integration Focus:</strong></p>
-        <ul class="ai-tools">
-            <li>Compliance understanding</li>
-            <li>Structured statutory interpretation</li>
-            <li>Analytical reasoning</li>
-        </ul>
-        <p><strong>AI Tools Integrated:</strong></p>
-        <ul class="ai-tools">
-            <li>ChatGPT – Legal clause simplification, accounting standards explanation</li>
-            <li>Excel AI – Ratio, variance, and compliance analysis</li>
-            <li>Notion AI – Structured notes and case documentation</li>
-        </ul>
-        <p><strong>Benchmarked Shadow Projects:</strong></p>
-        <ul class="projects">
-            <li>Company Law Compliance Snapshot (Infosys) – Analyse compliance requirements and disclosures. Tools: ChatGPT (section mapping), Notion AI (compliance checklist)</li>
-            <li>Corporate Accounting Adjustment Study (Reliance Industries) – Analyse mergers, bonus issues, or valuation adjustments. Tools: ChatGPT (accounting treatment), Excel AI (impact analysis)</li>
-        </ul>
-
-        <!-- Semester 3 -->
-        <h3>Semester 3: Cost Accounting, Taxation & Auditing Basics</h3>
-        <p><strong>Core Focus:</strong> Cost Accounting, Direct Tax, Auditing, Management Accounting.</p>
-        <p><strong>AI Integration Focus:</strong></p>
-        <ul class="ai-tools">
-            <li>Cost behaviour analysis</li>
-            <li>Tax computation logic</li>
-            <li>Audit risk identification</li>
-        </ul>
-        <p><strong>AI Tools Integrated:</strong></p>
-        <ul class="ai-tools">
-            <li>ChatGPT – Costing methods, tax logic explanation</li>
-            <li>Excel AI – Cost sheets, tax computation, variance analysis</li>
-            <li>Power BI / Looker Studio – Cost and margin dashboards</li>
-        </ul>
-        <p><strong>Benchmarked Shadow Projects:</strong></p>
-        <ul class="projects">
-            <li>Cost Sheet & Variance Analysis (Maruti Suzuki) – Prepare and analyse cost sheets. Tools: Excel AI (costing), ChatGPT (variance interpretation)</li>
-            <li>Income Tax Computation Case (Big 4 standards) – Compute taxable income. Tools: ChatGPT (section logic), Excel AI (tax computation)</li>
-        </ul>
-
-        <!-- Semester 4 -->
-        <h3>Semester 4: Financial Management & Advanced Taxation</h3>
-        <p><strong>Core Focus:</strong> Financial Management, GST, Advanced Direct Tax, Corporate Finance.</p>
-        <p><strong>AI Integration Focus:</strong></p>
-        <ul class="ai-tools">
-            <li>Financial decision-making</li>
-            <li>Tax planning & compliance</li>
-            <li>Data-backed evaluation</li>
-        </ul>
-        <p><strong>AI Tools Integrated:</strong></p>
-        <ul class="ai-tools">
-            <li>ChatGPT (Finance Mode) – Capital budgeting logic, tax planning scenarios</li>
-            <li>Excel AI – NPV, IRR, GST returns, cash flow analysis</li>
-            <li>Power BI – Financial performance dashboards</li>
-        </ul>
-        <p><strong>Benchmarked Shadow Projects:</strong></p>
-        <ul class="projects">
-            <li>Capital Budgeting Decision Study (Tata Power) – Evaluate investment proposals. Tools: Excel AI (NPV/IRR), ChatGPT (decision rationale)</li>
-            <li>GST Compliance & Return Analysis (Amazon India) – Analyse GST filings and compliance flow. Tools: ChatGPT (GST structure), Excel AI (return analysis)</li>
-        </ul>
-
-        <!-- Semester 5 -->
-        <h3>Semester 5: Research, Analytics & Corporate Strategy</h3>
-        <p><strong>Core Focus:</strong> Business Research Methods, Financial Analytics, Corporate Strategy, Electives.</p>
-        <p><strong>AI Integration Focus:</strong></p>
-        <ul class="ai-tools">
-            <li>Research orientation</li>
-            <li>Financial and business analytics</li>
-            <li>Strategic evaluation</li>
-        </ul>
-        <p><strong>AI Tools Integrated:</strong></p>
-        <ul class="ai-tools">
-            <li>ChatGPT (Research & Strategy Mode) – Hypothesis framing, analysis support</li>
-            <li>Power BI / Looker Studio – Analytical dashboards</li>
-            <li>Excel AI – Forecasting and trend analysis</li>
-            <li>Zotero / Mendeley + AI – Literature review</li>
-        </ul>
-        <p><strong>Benchmarked Shadow Projects:</strong></p>
-        <ul class="projects">
-            <li>Financial Performance Benchmarking (HDFC / ICICI) – Analyse profitability and stability. Tools: Power BI (comparative dashboards), ChatGPT (strategic insights)</li>
-            <li>Corporate Strategy Analysis (Aditya Birla Group) – Evaluate diversification and growth strategies. Tools: ChatGPT (strategy frameworks), Excel AI (trend support)</li>
-        </ul>
-
-        <!-- Semester 6 -->
-        <h3>Semester 6: Auditing, Ethics & Honours Dissertation</h3>
-        <p><strong>Core Focus:</strong> Advanced Auditing, Corporate Governance, Ethics, Dissertation / Viva.</p>
-        <p><strong>AI Integration Focus:</strong></p>
-        <ul class="ai-tools">
-            <li>Ethical and responsible AI usage</li>
-            <li>Research execution</li>
-            <li>Professional reporting</li>
-        </ul>
-        <p><strong>AI Tools Integrated:</strong></p>
-        <ul class="ai-tools">
-            <li>ChatGPT (Research & Audit Mode) – Audit planning, dissertation structuring</li>
-            <li>Power BI – Research data visualisation</li>
-            <li>Turnitin / Copyleaks – Academic integrity and plagiarism control</li>
-            <li>Beautiful.ai / Canva AI – Viva and defence presentations</li>
-        </ul>
-        <p><strong>Benchmarked Shadow Projects:</strong></p>
-        <ul class="projects">
-            <li>Audit Risk & Governance Review (Deloitte / EY) – Identify audit risks and governance gaps. Tools: ChatGPT (risk mapping), Excel AI (risk scoring)</li>
-            <li>Honours Dissertation & Defence (University Research Standards) – Data-driven dissertation with AI-supported analysis. Tools: ChatGPT (analysis support), Power BI (visuals), Turnitin (ethics)</li>
-        </ul>
-
+<header>
+  <div class="navbar">
+    <div class="logos">
+      <img src="https://www.gjimt.ac.in/wp-content/uploads/2025/09/gjimt-logo.png" alt="GJIMT Logo">
     </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>BCom (Hons) with AI Integration</h1>
+  <p>Industry-integrated commerce education powered by AI tools</p>
+</section>
+
+<div class="container">
+
+<div class="info-strip">
+Integration: 4 Credits | 42 Hours | 3 Global Certifications | Fee: ₹50,000 per Semester
+</div>
+
+<p>
+GJIMT offers a B.Com (Hons) program with an AI-enabled, tool-dependent experiential learning model
+covering accounting, finance, taxation, analytics, and research—using AI as a professional
+augmentation tool, not a shortcut.
+</p>
+
+<h2>Why Choose This Program</h2>
+<ul>
+<li>Strong accounting, finance and taxation foundations</li>
+<li>AI-augmented analytical and research capability</li>
+<li>Ethical, compliant and professional orientation</li>
+<li>Career readiness for CA / CMA / ACCA / MBA / Analytics</li>
+</ul>
+
+<h2>Program Structure</h2>
+
+<div class="semester">
+<h3>Semester 1: Financial Accounting & Business Foundations <span>+</span></h3>
+<div class="semester-content">
+<p><strong>Core Focus:</strong> Financial Accounting, Business Organization, Economics, Mathematics</p>
+<p><strong>AI Tools:</strong> ChatGPT, Excel AI, Grammarly, Copilot</p>
+<p><strong>Projects:</strong> Financial Statement Interpretation (Tata Group)</p>
+</div>
+</div>
+
+<div class="semester">
+<h3>Semester 2: Corporate Accounting & Business Law <span>+</span></h3>
+<div class="semester-content">
+<p><strong>AI Tools:</strong> ChatGPT, Excel AI, Notion AI</p>
+<p><strong>Projects:</strong> Company Law Compliance (Infosys)</p>
+</div>
+</div>
+
+<div class="semester">
+<h3>Semester 3: Cost Accounting, Taxation & Auditing <span>+</span></h3>
+<div class="semester-content">
+<p><strong>AI Tools:</strong> ChatGPT, Excel AI, Power BI</p>
+<p><strong>Projects:</strong> Cost & Variance Analysis (Maruti Suzuki)</p>
+</div>
+</div>
+
+<div class="semester">
+<h3>Semester 4: Financial Management & Advanced Taxation <span>+</span></h3>
+<div class="semester-content">
+<p><strong>AI Tools:</strong> ChatGPT, Excel AI, Power BI</p>
+<p><strong>Projects:</strong> Capital Budgeting (Tata Power)</p>
+</div>
+</div>
+
+<div class="semester">
+<h3>Semester 5: Research, Analytics & Corporate Strategy <span>+</span></h3>
+<div class="semester-content">
+<p><strong>AI Tools:</strong> ChatGPT, Power BI, Excel AI</p>
+<p><strong>Projects:</strong> Financial Benchmarking (HDFC / ICICI)</p>
+</div>
+</div>
+
+<div class="semester">
+<h3>Semester 6: Auditing, Ethics & Honours Dissertation <span>+</span></h3>
+<div class="semester-content">
+<p><strong>AI Tools:</strong> ChatGPT, Turnitin, Power BI</p>
+<p><strong>Projects:</strong> Audit Risk Review (Big 4)</p>
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2026 Gian Jyoti Institute of Management & Technology | All Rights Reserved
+</footer>
+
+<script>
+document.querySelectorAll(".semester h3").forEach(head=>{
+  head.addEventListener("click",()=>{
+    const content = head.nextElementSibling;
+    content.classList.toggle("open");
+    head.querySelector("span").textContent =
+      content.classList.contains("open") ? "−" : "+";
+  });
+});
+</script>
+
 </body>
 </html>
