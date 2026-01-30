@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCA with AI Integration | GJIMT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#b11217;
+  --dark:#1f1f1f;
+  --gray:#f4f6fa;
+  --blue:#1a237e;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:var(--gray);
+  color:#333;
+  line-height:1.7;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+}
+
+.logos img{
+  height:45px;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--dark);
+  margin-left:25px;
+  font-weight:500;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:var(--primary);
+  transition:.3s;
+}
+
+nav a:hover::after{width:100%;}
+
+/* HERO */
+.hero{
+  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+  url("https://images.unsplash.com/photo-1531482615713-2afd69097998") center/cover no-repeat;
+  padding:90px 20px;
+  color:#fff;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:2.6rem;
+}
+
+/* CONTENT */
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  background:#fff;
+  padding:40px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+h2{
+  color:var(--blue);
+  margin:35px 0 15px;
+}
+
+ul{
+  margin-left:20px;
+  margin-bottom:15px;
+}
+
+li{margin-bottom:6px;}
+
+/* INFO STRIP */
+.info-strip{
+  background:#eef1fb;
+  padding:15px 20px;
+  border-left:5px solid var(--primary);
+  border-radius:8px;
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+/* ACCORDION */
+.semester{
+  background:#f9fafc;
+  margin-bottom:18px;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 6px 15px rgba(0,0,0,.06);
+}
+
+.semester h3{
+  padding:16px 20px;
+  background:#e8eaf6;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.semester h3 span{
+  font-size:1.4rem;
+  font-weight:600;
+}
+
+.semester-content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .6s ease, padding .3s ease;
+  padding:0 20px;
+}
+
+.semester-content.open{
+  padding:20px;
+  max-height:3000px;
+}
+
+/* CONTACT */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  margin-top:20px;
+}
+
+.contact-card{
+  background:#f9fafc;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,.06);
+}
+
+.contact-card h3{
+  color:var(--blue);
+  margin-bottom:12px;
+}
+
+.call-box{
+  background:#eef1fb;
+  border-left:5px solid var(--primary);
+  padding:20px;
+  border-radius:10px;
+}
+
+.call-box h3{
+  color:var(--primary);
+}
+
+.call-number{
+  font-size:1.6rem;
+  font-weight:600;
+  margin:10px 0;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  color:#ccc;
+  text-align:center;
+  padding:18px;
+  font-size:.9rem;
+}
+
+@media(max-width:900px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logos">
+      <img src="https://www.gjimt.ac.in/wp-content/uploads/2025/09/gjimt-logo.png" alt="GJIMT Logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <h1>Contact Us</h1>
+ 
+</section>
+
+<!-- CONTACT SECTION -->
+<h2 id="contact">Contact Information</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<h3>Gian Jyoti Institute of Management & Technology</h3>
+<p>
+Phase 2, Mohali (Near Bassi Theatre),<br>
+Sector-54, Chandigarh,<br>
+Punjab 160055, India
+</p>
+
+<p><strong>General Helpline</strong><br>
+📞 +91-99144-33199<br>
+✉ gjimt@gjimt.com</p>
+
+<p><strong>Admissions Helpline</strong><br>
+📞 +91-99144-33199<br>
+✉ gjimt@gjimt.com</p>
+
+<p><strong>International Admissions Helpline</strong><br>
+📞 +91-99144-33199<br>
+✉ gjimt@gjimt.com</p>
+</div>
+
+<div class="call-box">
+<h3>Call Now</h3>
+<div class="call-number">+91-9914433199</div>
+<p>
+<strong>You Have a Question or a Comment</strong><br>
+We know that sometimes it’s tough to find the information you need.<br>
+<strong>So, ASK!</strong>
+</p>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Gian Jyoti Institute of Management & Technology | All Rights Reserved
+</footer>
+
+<script>
+document.querySelectorAll(".semester h3").forEach(head=>{
+  head.addEventListener("click",()=>{
+    const content = head.nextElementSibling;
+    content.classList.toggle("open");
+    head.querySelector("span").textContent =
+      content.classList.contains("open") ? "−" : "+";
+  });
+});
+</script>
+
+</body>
+</html>
