@@ -3,46 +3,335 @@
 <head>
   <meta charset="UTF-8">
   <title>Integrated Programs | GJIMT</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #b11217;
+      --dark: #1f1f1f;
+      --light: #ffffff;
+      --gray: #f4f4f4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--gray);
+      color: #333;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      margin-left: 25px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+      url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f") center/cover no-repeat;
+      padding: 90px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* ================= SECTION ================= */
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2.section-title {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+    }
+
+    /* ================= PROGRAM GRID ================= */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .program-card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: 0.35s;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .program-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, var(--primary), #ff4d4d);
+      opacity: 0;
+      transition: 0.35s;
+      z-index: 0;
+    }
+
+    .program-card span {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .program-card h3 {
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .program-card:hover::before {
+      opacity: 1;
+    }
+
+    .program-card:hover {
+      color: white;
+      transform: translateY(-8px);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      text-align: center;
+      padding: 18px;
+      font-size: 0.9rem;
+    }
+
+    /* ================= ANIMATION ================= */
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: 0.6s ease;
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+	 header {
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logos img {
+      height: 45px;
+    }
+
+    nav a {
+  color: #1f1f1f;
+  text-decoration: none;
+  margin-left: 22px;
+  font-weight: 500;
+  position: relative;
+}
+
+
+    nav a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+
+    nav a:hover::after {
+  width: 100%;
+}
+  </style>
 </head>
+
 <body>
 
-<header class="navbar">
-  <div class="container">
-    <h2 class="logo">GJIMT</h2>
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="navbar">
+    <div class="logos">
+      <img src="https://www.gjimt.ac.in/wp-content/uploads/2025/09/gjimt-logo.png" alt="GJIMT Logo">
+    
+    </div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="programs.html">Integrated Programs</a>
+      <a href="programs.html">Programs</a>
+       <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="programs">
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <h1>AI & Industry Integrated Programs</h1>
+  <p>Future-ready education with global certifications</p>
+</section>
+
+<!-- ================= PROGRAMS ================= -->
+<section>
   <div class="container">
-    <h1>AI & Industry Integrated Programs</h1>
 
-    <h2>Undergraduate Programs</h2>
+    <h2 class="section-title">Undergraduate Programs</h2>
     <div class="grid">
-       <a href="BCA with AI Integration.html" class="program-card">BCA with AI Integration</a>
-      <a href="BBA with AI Integration.html" class="program-card">BBA with AI Integration</a>
-       <a href="BCom(Hons) with AI Integration.html" class="program-card">B.Com (Hons) with AI Integration</a>
+      <a href="BCA with AI Integration.html" class="program-card">
+        <span>🤖</span>
+        <h3>BCA with AI Integration</h3>
+      </a>
+
+      <a href="BBA with AI Integration.html" class="program-card">
+        <span>📊</span>
+        <h3>BBA with AI Integration</h3>
+      </a>
+
+      <a href="BCom(Hons) with AI Integration.html" class="program-card">
+        <span>📘</span>
+        <h3>B.Com (Hons) with AI Integration</h3>
+      </a>
     </div>
 
-    <h2>Postgraduate Programs</h2>
+    <h2 class="section-title">Postgraduate Programs</h2>
     <div class="grid">
-      <a href="MBA with AI Integration.html" class="program-card">MBA with AI Integration</a>
-       <a href="MCA with AI Integration.html" class="program-card">MCA with AI Integration</a>
-      <a href="#" class="program-card">MCA with Full Stack Development</a>
-      <a href="#" class="program-card">MCA with Information Security</a>
+      <a href="MBA with AI Integration.html" class="program-card">
+        <span>🎓</span>
+        <h3>MBA with AI Integration</h3>
+      </a>
+
+      <a href="MCA with AI Integration.html" class="program-card">
+        <span>💻</span>
+        <h3>MCA with AI Integration</h3>
+      </a>
+
+      <a href="MCA with full stack.html" class="program-card">
+        <span>🧩</span>
+        <h3>MCA with Full Stack Development</h3>
+      </a>
+
+      <a href="MCA with IS.html" class="program-card">
+        <span>🔐</span>
+        <h3>MCA with Information Security</h3>
+      </a>
     </div>
+
   </div>
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer>
-  <p>© 2026 GJIMT | All Rights Reserved</p>
+  © 2026 Gian Jyoti Institute of Management & Technology | All Rights Reserved
 </footer>
 
+<!-- ================= SCRIPT ================= -->
+<script>
+  const cards = document.querySelectorAll('.program-card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  cards.forEach(card => observer.observe(card));
+</script>
+
 </body>
-
 </html>
-
