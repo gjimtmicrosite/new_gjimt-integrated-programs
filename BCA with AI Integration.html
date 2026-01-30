@@ -3,237 +3,466 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BCA with AI Integration - GJIMT</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<title>BCA with AI Integration | GJIMT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #f0f4f8;
-        color: #333;
-        line-height: 1.6;
+:root{
+  --primary:#b11217;
+  --dark:#1f1f1f;
+  --gray:#f4f6fa;
+  --blue:#1a237e;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:var(--gray);
+  color:#333;
+  line-height:1.7;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+}
+
+.logo{
+  color:var(--primary);
+  font-weight:700;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--dark);
+  margin-left:25px;
+  font-weight:500;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:var(--primary);
+  transition:.3s;
+}
+
+nav a:hover::after{width:100%;}
+
+/* HERO */
+.hero{
+  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+  url("https://images.unsplash.com/photo-1531482615713-2afd69097998") center/cover no-repeat;
+  padding:90px 20px;
+  color:#fff;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:2.6rem;
+}
+
+/* CONTENT */
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  background:#fff;
+  padding:40px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+h2{
+  color:var(--blue);
+  margin:30px 0 15px;
+}
+
+ul{
+  margin-left:20px;
+  margin-bottom:15px;
+}
+
+li{margin-bottom:6px;}
+
+/* INFO STRIP */
+.info-strip{
+  background:#eef1fb;
+  padding:15px 20px;
+  border-left:5px solid var(--primary);
+  border-radius:8px;
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+/* ACCORDION */
+.semester{
+  background:#f9fafc;
+  margin-bottom:18px;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 6px 15px rgba(0,0,0,.06);
+}
+
+.semester h3{
+  padding:16px 20px;
+  background:#e8eaf6;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.semester h3 span{
+  font-size:1.4rem;
+  font-weight:600;
+}
+
+.semester-content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .6s ease, padding .3s ease;
+  padding:0 20px;
+}
+
+.semester-content.open{
+  padding:20px;
+  max-height:3000px;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  color:#ccc;
+  text-align:center;
+  padding:18px;
+  font-size:.9rem;
+}
+
+header {
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
     }
-    .container {
-        max-width: 1100px;
-        margin: 30px auto;
-        background: #fff;
-        padding: 30px 40px;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+    .logos {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    h1 {
-        text-align: center;
-        color: #1a237e;
-        font-size: 2.4rem;
-        margin-bottom: 15px;
+
+    .logos img {
+      height: 45px;
     }
-    h2 {
-        color: #3949ab;
-        font-size: 1.8rem;
-        margin: 25px 0 15px;
-    }
-    h3 {
-        background: #e8eaf6;
-        color: #1a237e;
-        margin: 10px 0;
-        padding: 12px 20px;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: 0.3s background;
-    }
-    h3:hover {
-        background: #c5cae9;
-    }
-    p {
-        margin: 8px 0;
-    }
-    ul {
-        margin: 8px 0 16px 20px;
-    }
-    .ai-tools li, .projects li {
-        margin-bottom: 6px;
-    }
-    .badge {
-        display: inline-block;
-        background-color: #1a237e;
-        color: #fff;
-        padding: 2px 8px;
-        margin-right: 5px;
-        border-radius: 4px;
-        font-size: 0.85rem;
-    }
-    .accordion-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease, padding 0.3s ease;
-        padding: 0 20px;
-        background: #f9f9f9;
-        border-left: 4px solid #3949ab;
-        margin-bottom: 10px;
-        border-radius: 0 0 8px 8px;
-    }
-    .accordion-content.open {
-        padding: 15px 20px;
-    }
+
+    nav a {
+  color: #1f1f1f;
+  text-decoration: none;
+  margin-left: 22px;
+  font-weight: 500;
+  position: relative;
+}
+
+
+    nav a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+
+    nav a:hover::after {
+  width: 100%;
+}
 </style>
 </head>
+
 <body>
+<header>
+  <div class="navbar">
+    <div class="logos">
+      <img src="https://www.gjimt.ac.in/wp-content/uploads/2025/09/gjimt-logo.png" alt="GJIMT Logo">
+    
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+       <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>BCA with AI Integration</h1>
+  <p>Industry-integrated, tool-driven, future-ready computing education</p>
+</section>
 
 <div class="container">
-    <h1>BCA with AI Integration</h1>
-    <p><strong>Integration:</strong> 4 Credits | 42 Hours | 3 Global Certifications | Fee: 50,000 INR per Semester</p>
-    <p>GJIMT offers a unique BCA Program with AI-enabled, tool-dependent experiential learning model with emphasis on computing foundations, applied development, analytics, and industry readiness, not replacing core programming with AI.</p>
 
-    <h2>Why you should do this Program:</h2>
-    <ul>
-        <li>Strong programming and system foundations</li>
-        <li>AI-augmented development and analytics skills</li>
-        <li>Secure, ethical and scalable computing mindset</li>
-        <li>High employability for software, analytics and IT roles</li>
-    </ul>
-
-    <h2>Program Semesters</h2>
-
-    <!-- Semester 1 -->
-    <h3>Semester 1: Programming Fundamentals & Computer Basics</h3>
-    <div class="accordion-content">
-        <p><strong>Core Focus:</strong> Programming in C, Computer Fundamentals, Digital Logic, Mathematics, Communication Skills.</p>
-        <ul class="ai-tools">
-            <li><span class="badge">AI</span>Logic building and problem understanding</li>
-            <li><span class="badge">AI</span>Code explanation and debugging</li>
-            <li><span class="badge">AI</span>Technical documentation</li>
-        </ul>
-        <ul class="ai-tools">
-            <li><span class="badge">ChatGPT</span>Logic explanation, dry runs, debugging support</li>
-            <li><span class="badge">Copilot</span>Syntax assistance (controlled use)</li>
-            <li><span class="badge">Grammarly AI</span>Technical writing</li>
-            <li><span class="badge">Notion AI</span>Lab notes and documentation</li>
-        </ul>
-        <ul class="projects">
-            <li><span class="badge">Project</span>Algorithm Logic Comparison (Google)</li>
-            <li><span class="badge">Project</span>Utility Program Development (Microsoft)</li>
-        </ul>
-    </div>
-
-    <!-- Semester 2 -->
-    <h3>Semester 2: Data Structures, OOP & Operating Systems</h3>
-    <div class="accordion-content">
-        <p><strong>Core Focus:</strong> Data Structures, Object-Oriented Programming, Operating Systems, Discrete Mathematics.</p>
-        <ul class="ai-tools">
-            <li><span class="badge">AI</span>Data structure selection</li>
-            <li><span class="badge">AI</span>Object-oriented design thinking</li>
-            <li><span class="badge">AI</span>System behaviour understanding</li>
-        </ul>
-        <ul class="ai-tools">
-            <li><span class="badge">ChatGPT</span>DS & OOP explanation, design validation</li>
-            <li><span class="badge">Copilot</span>Class and method scaffolding</li>
-            <li><span class="badge">Draw.io AI</span>Flowcharts and class diagrams</li>
-        </ul>
-        <ul class="projects">
-            <li><span class="badge">Project</span>Data Structure Performance Study (Amazon)</li>
-            <li><span class="badge">Project</span>OOP Module Design (Salesforce)</li>
-        </ul>
-    </div>
-
-    <!-- Semester 3 -->
-    <h3>Semester 3: Database Systems, Web Technologies & Software Engineering</h3>
-    <div class="accordion-content">
-        <p><strong>Core Focus:</strong> DBMS, Web Programming, Software Engineering, Numerical Methods.</p>
-        <ul class="ai-tools">
-            <li><span class="badge">AI</span>Database design & optimisation</li>
-            <li><span class="badge">AI</span>Web application structuring</li>
-            <li><span class="badge">AI</span>SDLC understanding</li>
-        </ul>
-        <ul class="ai-tools">
-            <li><span class="badge">ChatGPT</span>SQL optimisation, SDLC guidance</li>
-            <li><span class="badge">Copilot</span>Backend & frontend assistance</li>
-            <li><span class="badge">Draw.io AI</span>ER & UML diagrams</li>
-            <li><span class="badge">Excel AI</span>Test case and defect tracking</li>
-        </ul>
-        <ul class="projects">
-            <li><span class="badge">Project</span>Database Design & Query Optimisation (Oracle)</li>
-            <li><span class="badge">Project</span>Web Application Module (Zoho)</li>
-        </ul>
-    </div>
-
-    <!-- Semester 4 -->
-    <h3>Semester 4: Data Analytics, Python & Emerging Technologies</h3>
-    <div class="accordion-content">
-        <p><strong>Core Focus:</strong> Python Programming, Data Analytics, Cloud Basics, Elective I.</p>
-        <ul class="ai-tools">
-            <li><span class="badge">AI</span>Data analysis and interpretation</li>
-            <li><span class="badge">AI</span>Python-based problem solving</li>
-            <li><span class="badge">AI</span>Introductory cloud usage</li>
-        </ul>
-        <ul class="ai-tools">
-            <li><span class="badge">Python + AI</span>Data analysis & scripting</li>
-            <li><span class="badge">Google Colab</span>Experimentation</li>
-            <li><span class="badge">Power BI</span>Analytics dashboards</li>
-        </ul>
-        <ul class="projects">
-            <li><span class="badge">Project</span>Customer Data Analysis Project (Netflix)</li>
-            <li><span class="badge">Project</span>Predictive Analytics Mini-Project (Uber)</li>
-        </ul>
-    </div>
-
-    <!-- Semester 5 -->
-    <h3>Semester 5: Advanced Development, Security & Electives</h3>
-    <div class="accordion-content">
-        <p><strong>Core Focus:</strong> Advanced Web Technologies, Cybersecurity, Elective II, Mini Project.</p>
-        <ul class="ai-tools">
-            <li><span class="badge">AI</span>Secure coding</li>
-            <li><span class="badge">AI</span>Application optimisation</li>
-            <li><span class="badge">AI</span>Industry-oriented development</li>
-        </ul>
-        <ul class="ai-tools">
-            <li><span class="badge">ChatGPT</span>Secure coding practices, threat modelling</li>
-            <li><span class="badge">Copilot</span>Code optimisation</li>
-            <li><span class="badge">Excel AI</span>Security logs and issue tracking</li>
-        </ul>
-        <ul class="projects">
-            <li><span class="badge">Project</span>Secure Web Application Review (OWASP / Google)</li>
-            <li><span class="badge">Project</span>Application Performance Optimisation (Meta)</li>
-        </ul>
-    </div>
-
-    <!-- Semester 6 -->
-    <h3>Semester 6: Major Project, Cloud & Industry Readiness</h3>
-    <div class="accordion-content">
-        <p><strong>Core Focus:</strong> Major Project, Seminar, Cloud Computing, Professional Ethics.</p>
-        <ul class="ai-tools">
-            <li><span class="badge">AI</span>End-to-end system development</li>
-            <li><span class="badge">AI</span>Ethical and responsible AI usage</li>
-            <li><span class="badge">AI</span>Industry-ready documentation</li>
-        </ul>
-        <ul class="ai-tools">
-            <li><span class="badge">ChatGPT</span>Project planning and documentation</li>
-            <li><span class="badge">Copilot</span>Full-stack support</li>
-            <li><span class="badge">Cloud</span>Deployment & scaling</li>
-            <li><span class="badge">Turnitin</span>Ethical compliance</li>
-        </ul>
-        <ul class="projects">
-            <li><span class="badge">Project</span>AI-Enabled Application Prototype (Google / Microsoft)</li>
-            <li><span class="badge">Project</span>Cloud Deployment & Documentation Project (AWS)</li>
-        </ul>
-    </div>
+<div class="info-strip">
+Integration: 4 Credits | 42 Hours | 3 Global Certifications | Fee: ₹50,000 per Semester
+</div>
+<div style="text-align:center; margin:30px 0;">
+  <button id="downloadBtn" style="
+    background:#b11217;
+    color:#fff;
+    border:none;
+    padding:14px 30px;
+    font-size:16px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+  ">
+    📄 Download Program Brochure
+  </button>
 </div>
 
+
+<p>
+GJIMT offers a BCA program with an AI-enabled, tool-dependent experiential learning model
+that strengthens computing fundamentals while augmenting development, analytics,
+and industry readiness—without replacing core programming skills.
+</p>
+
+<h2>Why Choose This Program</h2>
+<ul>
+<li>Strong programming and system foundations</li>
+<li>AI-augmented development and analytics skills</li>
+<li>Secure, ethical, and scalable computing mindset</li>
+<li>High employability in software and IT roles</li>
+</ul>
+
+<h2>Program Structure</h2>
+
+<!-- SEMESTER 1 -->
+<div class="semester">
+<h3>Semester 1: Programming Fundamentals & Computer Basics <span>+</span></h3>
+<div class="semester-content">
+<p><strong>Core Focus:</strong> C Programming, Computer Fundamentals, Digital Logic, Mathematics, Communication Skills</p>
+<p><strong>AI Integration Focus:</strong> Logic building, debugging, technical documentation</p>
+<p><strong>AI Tools:</strong> ChatGPT, Gemini, GitHub Copilot, Grammarly AI, Notion AI</p>
+<p><strong>Benchmarked Projects:</strong> Algorithm Logic Comparison (Google), Utility Program Development (Microsoft)</p>
+</div>
+</div>
+
+<!-- SEMESTER 2 -->
+<div class="semester">
+<h3>Semester 2: Data Structures, OOP & Operating Systems <span>+</span></h3>
+<div class="semester-content">
+<p><strong>Core Focus:</strong> Data Structures, OOP, Operating Systems, Discrete Mathematics</p>
+<p><strong>AI Integration Focus:</strong> Design thinking, system behavior analysis</p>
+<p><strong>AI Tools:</strong> ChatGPT, GitHub Copilot, Draw.io AI, Lucid AI</p>
+<p><strong>Benchmarked Projects:</strong> Data Structure Performance Study (Amazon), OOP Module Design (Salesforce)</p>
+</div>
+</div>
+
+<!-- SEMESTER 3 -->
+<div class="semester">
+<h3>Semester 3: DBMS, Web Technologies & Software Engineering <span>+</span></h3>
+<div class="semester-content">
+<p><strong>Core Focus:</strong> DBMS, Web Programming, SDLC</p>
+<p><strong>AI Integration Focus:</strong> SQL optimization, application structuring</p>
+<p><strong>AI Tools:</strong> ChatGPT, GitHub Copilot, Draw.io AI, Excel AI</p>
+<p><strong>Benchmarked Projects:</strong> Database Design (Oracle), Web Module Development (Zoho)</p>
+</div>
+</div>
+
+<!-- SEMESTER 4 -->
+<div class="semester">
+<h3>Semester 4: Python, Data Analytics & Emerging Technologies <span>+</span></h3>
+<div class="semester-content">
+<p><strong>Core Focus:</strong> Python, Data Analytics, Cloud Basics</p>
+<p><strong>AI Integration Focus:</strong> Data interpretation, analytics dashboards</p>
+<p><strong>AI Tools:</strong> ChatGPT, Google Colab, Power BI, Looker Studio</p>
+<p><strong>Benchmarked Projects:</strong> Customer Data Analysis (Netflix), Predictive Analytics (Uber)</p>
+</div>
+</div>
+
+<!-- SEMESTER 5 -->
+<div class="semester">
+<h3>Semester 5: Advanced Development & Security <span>+</span></h3>
+<div class="semester-content">
+<p><strong>Core Focus:</strong> Advanced Web Technologies, Cybersecurity, Mini Project</p>
+<p><strong>AI Integration Focus:</strong> Secure coding, performance optimization</p>
+<p><strong>AI Tools:</strong> ChatGPT, GitHub Copilot, Excel AI</p>
+<p><strong>Benchmarked Projects:</strong> Secure Web App Review (OWASP), Performance Optimization (Meta)</p>
+</div>
+</div>
+
+<!-- SEMESTER 6 -->
+<div class="semester">
+<h3>Semester 6: Major Project & Industry Readiness <span>+</span></h3>
+<div class="semester-content">
+<p><strong>Core Focus:</strong> Major Project, Cloud Deployment, Professional Ethics</p>
+<p><strong>AI Integration Focus:</strong> End-to-end system development</p>
+<p><strong>AI Tools:</strong> ChatGPT, GitHub Copilot, AWS, Azure, Turnitin</p>
+<p><strong>Benchmarked Projects:</strong> AI Application Prototype (Google/Microsoft), Cloud Deployment (AWS)</p>
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2026 Gian Jyoti Institute of Management & Technology | All Rights Reserved
+</footer>
 <script>
-    // Accordion Functionality
-    const acc = document.querySelectorAll("h3");
-    acc.forEach(item => {
-        item.addEventListener("click", () => {
-            const panel = item.nextElementSibling;
-            panel.classList.toggle("open");
-            if(panel.style.maxHeight){
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ACCORDION */
+  document.querySelectorAll(".semester h3").forEach(head => {
+    head.addEventListener("click", () => {
+      const content = head.nextElementSibling;
+      content.classList.toggle("open");
+      head.querySelector("span").textContent =
+        content.classList.contains("open") ? "−" : "+";
     });
+  });
+
+  /* MODAL ELEMENTS */
+  const modal = document.getElementById("downloadModal");
+  const downloadBtn = document.getElementById("downloadBtn");
+  const form = document.getElementById("downloadForm");
+
+  /* OPEN MODAL */
+  downloadBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+  });
+
+  /* CLOSE MODAL ON OUTSIDE CLICK */
+  window.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  /* FORM SUBMIT → GOOGLE SHEET → PDF DOWNLOAD */
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch("https://script.google.com/macros/s/AKfycbwq6af78tgcJCQPUp_TZ5y2ZXNEgdRGzZuuxul9RuYD9JDIJTThzSRsEzzMssBBDQ/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(() => {
+  modal.style.display = "none";
+
+  // ✅ OPEN PDF IN NEW TAB (FORCED DOWNLOAD WORKS)
+  window.open(
+    "assets/pdf/BCAwithAI.pdf.pdf",
+    "_blank"
+  );
+
+  // ✅ RELOAD SAME PAGE AFTER DOWNLOAD STARTS
+  setTimeout(() => {
+    window.location.href = window.location.pathname;
+  }, 1500);
+})
+
+
+    .catch(() => {
+      alert("Submission failed. Please try again.");
+    });
+  });
+
+});
 </script>
+
+
+
+<!-- DOWNLOAD FORM MODAL -->
+<div id="downloadModal" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,.6);
+  z-index:2000;
+  justify-content:center;
+  align-items:center;
+">
+
+<div style="
+  background:#fff;
+  padding:30px;
+  width:90%;
+  max-width:420px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+">
+  <h2 style="color:#1a237e; margin-bottom:10px;">Download Brochure</h2>
+  <p style="margin-bottom:20px;">Please fill the details to continue</p>
+
+  <form id="downloadForm">
+    <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:10px; margin-bottom:12px;">
+    <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%; padding:10px; margin-bottom:12px;">
+    <input type="email" name="email" placeholder="Email Address" required style="width:100%; padding:10px; margin-bottom:12px;">
+    
+    <select name="course" required style="width:100%; padding:10px; margin-bottom:18px;">
+      <option value="">Course Interested</option>
+      <option>BCA with AI Integration</option>
+      <option>BBA with AI Integration</option>
+      <option>MCA with AI Integration</option>
+      <option>MCA with Full Stack Integration</option>
+      <option>MCA with Information Security</option>
+      <option>MBA with AI Integration</option>
+    </select>
+
+    <button type="submit" style="
+      width:100%;
+      background:#b11217;
+      color:#fff;
+      border:none;
+      padding:12px;
+      font-size:16px;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:600;
+    ">
+      Submit & Download
+    </button>
+  </form>
+</div>
+</div>
 
 </body>
 </html>
