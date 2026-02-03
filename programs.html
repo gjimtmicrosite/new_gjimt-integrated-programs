@@ -9,6 +9,82 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
+/* ================= MOBILE & TABLET RESPONSIVE ================= */
+
+/* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  .grid {
+    gap: 16px;
+  }
+
+  .program-card {
+    width: 210px;
+    min-height: 190px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav a {
+    margin-left: 15px;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    overflow-x: unset;
+  }
+
+  .program-card {
+    width: 100%;
+    min-height: 180px;
+  }
+}
+
+/* Small Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .program-card span {
+    font-size: 1.6rem;
+  }
+
+  .program-card h3 {
+    font-size: 0.9rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+	  
     :root {
       --primary: #b11217;
       --dark: #1f1f1f;
@@ -408,3 +484,4 @@
 
 </body>
 </html>
+
