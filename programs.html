@@ -52,12 +52,13 @@
     font-size: 1rem;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    overflow-x: unset;
-  }
+
+	.grid {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
 
   .program-card {
     width: 100%;
@@ -188,13 +189,7 @@
     }
 
     /* ================= PROGRAM GRID ================= */
-.grid {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  align-items: stretch;
-}
+
 
 .grid::-webkit-scrollbar {
   height: 6px;
@@ -386,6 +381,30 @@
   background: var(--primary);
   color: #fff;
 }
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .program-card {
+    width: 100% !important;
+    min-height: auto;
+  }
+
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+}
 
 
   </style>
@@ -484,4 +503,5 @@
 
 </body>
 </html>
+
 
