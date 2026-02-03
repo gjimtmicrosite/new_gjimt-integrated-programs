@@ -112,60 +112,71 @@
     }
 
     /* ================= PROGRAM GRID ================= */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      margin-bottom: 60px;
-    }
+.grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  align-items: stretch;
+}
 
-    .program-card {
-      background: white;
-      padding: 35px 25px;
-      border-radius: 14px;
-      text-decoration: none;
-      color: #333;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      text-align: center;
-      transition: 0.35s;
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(30px);
-    }
+.grid::-webkit-scrollbar {
+  height: 6px;
+}
 
-    .program-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, var(--primary), #ff4d4d);
-      opacity: 0;
-      transition: 0.35s;
-      z-index: 0;
-    }
 
-    .program-card span {
-      font-size: 2.2rem;
-      display: block;
-      margin-bottom: 15px;
-      position: relative;
-      z-index: 1;
-    }
 
-    .program-card h3 {
-      font-size: 1.1rem;
-      position: relative;
-      z-index: 1;
-    }
+/* Optional: hide scrollbar (looks premium) */
+.grid::-webkit-scrollbar {
+  height: 6px;
+}
 
-    .program-card:hover::before {
-      opacity: 1;
-    }
+.grid::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
 
-    .program-card:hover {
-      color: white;
-      transform: translateY(-8px);
-    }
+
+  .program-card {
+  background: #ffffff;
+  padding: 20px 18px;
+  border-radius: 16px;
+  text-align: center;
+  color: #222;
+  text-decoration: none;
+
+  width: 230px;
+  min-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.35s ease;
+  border: 2px solid transparent;
+}
+
+/* REMOVE dark overlay completely */
+.program-card::before {
+  display: none;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+}
+.program-card span {
+  font-size: 1.9rem;
+  margin-bottom: 12px;
+}
+
+.program-card h3 {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
 
     /* ================= FOOTER ================= */
     footer {
@@ -239,6 +250,68 @@
     nav a:hover::after {
   width: 100%;
 }
+.program-card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.program-card ul li {
+  font-size: 0.85rem;
+  margin: 6px 0;
+  opacity: 0.9;
+}
+.mca-links {
+  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.mca-links a {
+  font-size: 0.8rem;
+  margin: 5px 0;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+
+.program-card:hover .mca-links a {
+  background: rgba(255,255,255,0.25);
+}
+
+.mca-links a:hover {
+  background: rgba(255,255,255,0.35);
+}
+.mca-card {
+  background: #fafafa;
+}
+
+.mca-badges {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.mca-badges a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #f2f2f2;
+  color: #333;
+  transition: 0.3s;
+}
+
+.mca-badges a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+
   </style>
 </head>
 
@@ -266,11 +339,14 @@
 </section>
 
 <!-- ================= PROGRAMS ================= -->
+<!-- ================= PROGRAMS ================= -->
 <section>
   <div class="container">
 
-    <h2 class="section-title">Undergraduate Programs</h2>
+    <h2 class="section-title">Our Integrated Programs</h2>
+
     <div class="grid">
+
       <a href="BCA with AI Integration.html" class="program-card">
         <span>🤖</span>
         <h3>BCA with AI Integration</h3>
@@ -285,33 +361,30 @@
         <span>📘</span>
         <h3>B.Com (Hons) with AI Integration</h3>
       </a>
-    </div>
 
-    <h2 class="section-title">Postgraduate Programs</h2>
-    <div class="grid">
       <a href="MBA with AI Integration.html" class="program-card">
         <span>🎓</span>
         <h3>MBA with AI Integration</h3>
       </a>
 
-      <a href="MCA with AI Integration.html" class="program-card">
-        <span>💻</span>
-        <h3>MCA with AI Integration</h3>
-      </a>
+      <!-- MCA Combined Card -->
+<div class="program-card mca-card">
+  <span>💻</span>
+  <h3>MCA – Industry Integrated</h3>
 
-      <a href="MCA with full stack.html" class="program-card">
-        <span>🧩</span>
-        <h3>MCA with Full Stack Development</h3>
-      </a>
+  <div class="mca-badges">
+    <a href="MCA with AI Integration.html">AI Integration</a>
+    <a href="MCA with full stack.html">Full Stack</a>
+    <a href="MCA with IS.html">Information Security</a>
+  </div>
+</div>
 
-      <a href="MCA with IS.html" class="program-card">
-        <span>🔐</span>
-        <h3>MCA with Information Security</h3>
-      </a>
+
     </div>
 
   </div>
 </section>
+
 
 <!-- ================= FOOTER ================= -->
 <footer>
