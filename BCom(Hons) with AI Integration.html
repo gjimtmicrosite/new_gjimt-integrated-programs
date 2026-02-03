@@ -185,7 +185,7 @@ footer{
     <nav>
       <a href="index.html">Home</a>
       <a href="programs.html">Programs</a>
-      <a href="#">Contact</a>
+       <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -199,6 +199,21 @@ footer{
 
 <div class="info-strip">
 Integration: 4 Credits | 42 Hours | 3 Global Certifications | Fee: ₹50,000 per Semester
+</div>
+
+<div style="text-align:center; margin:30px 0;">
+  <button id="downloadBtn" style="
+    background:#b11217;
+    color:#fff;
+    border:none;
+    padding:14px 30px;
+    font-size:16px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+  ">
+    📄 Download Program Brochure
+  </button>
 </div>
 
 <p>
@@ -273,15 +288,128 @@ augmentation tool, not a shortcut.
 </footer>
 
 <script>
-document.querySelectorAll(".semester h3").forEach(head=>{
-  head.addEventListener("click",()=>{
-    const content = head.nextElementSibling;
-    content.classList.toggle("open");
-    head.querySelector("span").textContent =
-      content.classList.contains("open") ? "−" : "+";
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ACCORDION */
+  document.querySelectorAll(".semester h3").forEach(head => {
+    head.addEventListener("click", () => {
+      const content = head.nextElementSibling;
+      content.classList.toggle("open");
+      head.querySelector("span").textContent =
+        content.classList.contains("open") ? "−" : "+";
+    });
   });
+
+  /* MODAL ELEMENTS */
+  const modal = document.getElementById("downloadModal");
+  const downloadBtn = document.getElementById("downloadBtn");
+  const form = document.getElementById("downloadForm");
+  const phoneInput = document.getElementById("phone");
+
+  /* OPEN MODAL */
+  downloadBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+  });
+
+  /* CLOSE MODAL */
+  window.addEventListener("click", e => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  /* ALLOW ONLY NUMBERS */
+  phoneInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, "");
+  });
+
+  /* FORM SUBMIT */
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (phoneInput.value.length !== 10) {
+      alert("Please enter a valid 10-digit mobile number.");
+      phoneInput.focus();
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    fetch("https://script.google.com/macros/s/AKfycbxXXk7DXKjUk_7r8OH-7BH4YjPdNI3JcILha67o03J7K6or4oESzjUp599enHJYG0U/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(() => {
+      modal.style.display = "none";
+      window.open("assets/pdf/BComwithAI.pdf", "_blank");
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 1200);
+    })
+    .catch(() => {
+      alert("Submission failed. Please try again.");
+    });
+  });
+
 });
 </script>
+
+
+
+<!-- DOWNLOAD FORM MODAL -->
+<div id="downloadModal" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,.6);
+  z-index:2000;
+  justify-content:center;
+  align-items:center;
+">
+
+<div style="
+  background:#fff;
+  padding:30px;
+  width:90%;
+  max-width:420px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+">
+  <h2 style="color:#1a237e; margin-bottom:10px;">Download Brochure</h2>
+  <p style="margin-bottom:20px;">Please fill the details to continue</p>
+
+  <form id="downloadForm">
+    <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:10px; margin-bottom:12px;">
+    <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%; padding:10px; margin-bottom:12px;">
+    <input type="email" name="email" placeholder="Email Address" required style="width:100%; padding:10px; margin-bottom:12px;">
+    
+    <select name="course" required style="width:100%; padding:10px; margin-bottom:18px;">
+      <option value="">Course Interested</option>
+      <option>BCA with AI Integration</option>
+      <option>BBA with AI Integration</option>
+	    <option>BCom(Hons) with AI Integration</option>
+      <option>MCA with AI Integration</option>
+      <option>MCA with Full Stack Integration</option>
+      <option>MCA with Information Security</option>
+      <option>MBA with AI Integration</option>
+    </select>
+
+    <button type="submit" style="
+      width:100%;
+      background:#b11217;
+      color:#fff;
+      border:none;
+      padding:12px;
+      font-size:16px;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:600;
+    ">
+      Submit & Download
+    </button>
+  </form>
+</div>
+</div>
 
 </body>
 </html>
