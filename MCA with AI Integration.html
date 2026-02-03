@@ -409,7 +409,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   <form id="downloadForm">
     <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:10px; margin-bottom:12px;">
-    <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%; padding:10px; margin-bottom:12px;">
+
+  <input 
+  type="tel" 
+  name="phone" 
+  id="phone"
+  placeholder="Phone Number"
+  pattern="[0-9]{10}"
+  maxlength="10"
+  required
+  style="width:100%; padding:10px; margin-bottom:12px;"
+>
+
+	  
     <input type="email" name="email" placeholder="Email Address" required style="width:100%; padding:10px; margin-bottom:12px;">
     
     <select name="course" required style="width:100%; padding:10px; margin-bottom:18px;">
