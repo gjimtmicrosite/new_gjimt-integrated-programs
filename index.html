@@ -273,7 +273,69 @@
   animation: pulse 1.8s infinite;
   border-radius: 2px;
 }
+/* Card */
+.card {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
 
+/* AI Highlight */
+.ai-highlight {
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Modal background */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal box */
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: zoomIn 0.3s ease;
+}
+
+/* Image */
+.modal-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Animation */
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 @keyframes pulse {
   0% { opacity: 0.4; }
   50% { opacity: 1; }
@@ -329,14 +391,42 @@
         <p>Hands-on, problem-driven learning.</p>
       </div>
 
-   <div class="card">
-  <h3>State of The Art <span class="ai-highlight">AI Lab</span></h3>
+<div class="card">
+  <h3>
+    State of The Art
+    <span class="ai-highlight" onclick="openModal()">AI Lab</span>
+  </h3>
   <p>Career-focused skill development.</p>
+</div>
+
+<!-- POPUP MODAL -->
+<div id="aiModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>State of the Art AI Lab</h3>
+    <img src="ai-lab.jpg" alt="AI Lab" class="modal-img">
+  </div>
 </div>
     </div>
   </div>
 </section>
+<script>
+function openModal() {
+  document.getElementById("aiModal").style.display = "flex";
+}
 
+function closeModal() {
+  document.getElementById("aiModal").style.display = "none";
+}
+
+/* Close when clicking outside */
+window.onclick = function(event) {
+  const modal = document.getElementById("aiModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 <!-- ================= POPUP ================= -->
 <div class="modal" id="certificateModal">
   <div class="modal-content">
@@ -368,6 +458,7 @@
 
 </body>
 </html>
+
 
 
 
